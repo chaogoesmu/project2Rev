@@ -38,11 +38,19 @@
     letter-spacing: 10px;
   }
   
-  h3 {
+  h1 {
     letter-spacing: 5px;
     text-transform: uppercase;
     font: 20px "Lato", sans-serif;
-    color: #111;
+    color: whitesmoke;
+  }
+
+  p {
+    font-size: 16pt;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+  }
+  div#container {
+    padding-top: 30px;
   }
   
   /* Turn off parallax scrolling for tablets and phones */
