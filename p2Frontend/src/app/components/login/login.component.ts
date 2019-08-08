@@ -30,7 +30,7 @@ httpOptions = {
   onSubmit() {
     this.user = new User(2,this.username, this.password, "quatermaster");
     this.us.loginUser(this.username, this.password);
-    if (this.us.getUser === null){
+    if (this.us.user === null){
       this.error = "invalid login";
     }
     else{

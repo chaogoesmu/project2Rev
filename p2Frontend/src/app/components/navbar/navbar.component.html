@@ -1,11 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <!-- TODO: nav bar/logo -->
-<div *ngIf="us.getUser().title == 'quartermaster'">
+<div *ngIf="us.user.title == 'quartermaster'">
     <a routerLink="/">H O M E</a>
     <a name="login" routerLink="/login">Login</a>
     <a routerLink="/register">Register</a>
 </div>
-<div *ngIf="us.getUser().title == 'user'">
+<div *ngIf="us.user.title == 'user'">
     <a routerLink="/">H O M E</a>
     <a routerLink="/contact">Contact</a>
     <a routerLink="/order">Order</a>
