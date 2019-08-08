@@ -2,22 +2,19 @@
 <!-- TODO: nav bar/logo -->
 <div *ngIf="us.user.title == 'quartermaster'">
     <a routerLink="/">H O M E</a>
-    <a name="login" routerLink="/login">Login</a>
-    <a routerLink="/quartermaster">Order</a>
-    <a routerLink="/register">Register</a>
+    <a routerLink="/quartermaster">Orders</a>
+    <a (click)="us.logout()" routerLink="/">Logout</a>
 </div>
 
 <div *ngIf="us.user.title == 'user'">
     <a routerLink="/">H O M E</a>
-    <a routerLink="/contact">Contact</a>
     <a routerLink="/order">Order</a>
     <a (click)="us.logout()" routerLink="/">Logout</a>
 </div>
 
 <div *ngIf="us.user.title == 'assembler'">
     <a routerLink="/">H O M E</a>
-    <a routerLink="/contact">Contact</a>
-    <a routerLink="/assembler">Order</a>
+    <a routerLink="/assembler">Orders</a>
     <a (click)="us.logout()" routerLink="/">Logout</a>
 </div>
 
