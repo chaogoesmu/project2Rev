@@ -10,7 +10,7 @@
     <div *ngIf = "options">
     <p>Let us know what your requirements are and we'll make a custom build to meet your demands!</p>
     <form (submit) = "submitez()">
-        <textarea placeholder="Some information about your requirements ie. what game you'd like it to run" name="req" rows="15" cols="80"></textarea><br/>
+        <textarea placeholder="Some information about your requirements ie. what game you'd like it to run" name="req" rows="15" cols="80" [(ngModel)] = "req"></textarea><br/>
         <input type="submit" value="Submit">
     </form>
     </div>
@@ -18,10 +18,11 @@
     <div *ngIf = "!options">
     <p>Let us know what your requirements are and we'll make a custom build to meet your demands!</p>
     <form (submit) = "submitadv()">
-        CPU <input type="text" placeholder="CPU" name="cpu"><br/>
-        GPU <input type="text" placeholder="Video card" name="gpu"><br/>
-        RAM <input type="text" placeholder="RAM amount (GB)" name="ram"><br/>
-        CPU <input type="text" placeholder="cpu" name="cpu"><br/>
+        CPU <input type="text" placeholder="CPU" name="cpu" [(ngModel)] = "cpu"><br/>
+        GPU <input type="text" placeholder="Video card" name="gpu" [(ngModel)] = "gpu"><br/>
+        RAM <input type="text" placeholder="RAM amount (GB)" name="ram" [(ngModel)] = "ram"><br/>
+        SDD <input type="text" placeholder="SDD size (0 for none)" name="cpu" [(ngModel)] = "sdd"><br/>
+        
         <input type="submit" value="Submit">
     </form>
     </div>
