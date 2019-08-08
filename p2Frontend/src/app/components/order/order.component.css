@@ -1,3 +1,31 @@
 div#container {
-    padding-top: 30px;
-  }
+  padding-top: 30px;
+  background-image: url("/assets/hightec.png");
+  background-size: cover;
+  min-height: 100%;
+}
+
+/* error */
+span#error {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: whitesmoke;
+  font-size: 18pt;
+}
+
+form label {
+  min-width: 200px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+div#content {
+  background-color: rgba(0,0,0,.6);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: whitesmoke;
+  font-size: 18pt;
+}
+
+textarea {
+  font-size: 14pt;
+  
+}
