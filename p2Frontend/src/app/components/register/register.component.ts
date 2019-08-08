@@ -31,8 +31,6 @@ export class RegisterComponent implements OnInit {
   onSubmit(){
     if (this.cpassword === this.password){
       this.user = new User(-1,this.username, this.password, "user");
-      console.log(this.user);
-      console.log(JSON.stringify(this.user));
       this.http.post("http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/users", JSON.stringify(this.user), this.httpOptions).toPromise().then((response)=>{
         console.log(response);
 
