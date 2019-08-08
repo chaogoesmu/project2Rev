@@ -25,9 +25,7 @@ export class UserserviceService{
       //console.log(response);
       
       if(!(response === null)){
-        if (this.user.title === "user"){
-          this.router.navigate(["/"]);
-        }
+        this.router.navigate(["/"]);
       }
     });
     
