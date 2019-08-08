@@ -6,6 +6,8 @@ import { OrderComponent } from './components/order/order.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UsercompComponent } from './components/usercomp/usercomp.component';
+import { QuartermasterComponent } from './components/quartermaster/quartermaster.component';
+import { AssemblerComponent } from './components/assembler/assembler.component';
 
 
 const routes: Routes = [
@@ -15,6 +17,8 @@ const routes: Routes = [
   {path: "contact", component: ContactComponent},
   {path: "register", component: RegisterComponent},
   {path: "usercomp", component: UsercompComponent},
+  {path: "assembler", component: AssemblerComponent},
+  {path: "quartermaster", component: QuartermasterComponent},
   {path: "**", component: HomeComponent}
 ];
 
