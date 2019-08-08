@@ -1,5 +1,22 @@
+<div class="nav">
+    <a class="nav" routerLink="/">H O M E</a>
+    <a class="nav" name="login" routerLink="/login">Login</a>
+    <a class="nav" routerLink="/register">Register</a>
+</div>
 
 <div id="container">
-    
-    <p>login works!</p>
+    <div class="form-div">
+        <form (ngSubmit)="onSubmit()">
+            <fieldset>
+                <legend>User Login</legend>
+                <input type="text" class="form-control" name="username" placeholder="username" [(ngModel)] = "username" required>
+                <br>
+                <input type="password" class="form-control" name="password" placeholder="password" [(ngModel)] = "password" required>
+                <br>
+                <div style="font-size: 12pt">{{error}}</div>
+                <button style="margin-top: 10px" type="submit" name="btnS">Submit</button>
+            </fieldset>
+            </form>
+        </div>
+
 </div>

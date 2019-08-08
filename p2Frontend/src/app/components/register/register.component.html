@@ -1,4 +1,26 @@
+<div class="nav">
+    <a class="nav" routerLink="/">H O M E</a>
+    <a class="nav" name="login" routerLink="/login">Login</a>
+    <a class="nav" routerLink="/register">Register</a>
+</div>
+
+
 <div id="container">
-    <p>register works!</p>
-    
+    <div class="form-div">
+        <form (ngSubmit)="onSubmit()">
+            <fieldset>
+                <legend>Register</legend>
+                <input type="text" class="form-control" name="username" placeholder="username" [(ngModel)] = "username" required>
+                <br>
+                <input type="password" class="form-control" name="password" placeholder="password" [(ngModel)] = "password" required>
+                <br>
+                <input (keyup)="check()" type="password" class="form-control" name="cpassword" placeholder="confirm password" [(ngModel)] = "cpassword" required>
+                <br>
+                <!-- <div [innerHTML] = "confirm"></div> -->
+                <div style="font-size: 12pt" *ngIf="password !== cpassword">Passwords do not match</div>
+                <button style="margin-top: 10px" type="submit">Submit</button>
+            </fieldset>
+            </form>
+        </div>
+
 </div>
