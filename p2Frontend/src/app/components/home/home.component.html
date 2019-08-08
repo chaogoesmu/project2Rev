@@ -1,7 +1,14 @@
-<div class="nav">
+<div class="nav" *ngIf="us.user.title == 'nothing'">
     <a class="nav" routerLink="/">H O M E</a>
     <a class="nav" name="login" routerLink="/login">Login</a>
     <a class="nav" routerLink="/register">Register</a>
+</div>
+
+<div class="nav" *ngIf="us.user.title == 'user'">
+    <a routerLink="/">H O M E</a>
+    <a routerLink="/contact">Contact</a>
+    <a routerLink="/order">Order</a>
+    <a routerLink="/register">Logout</a>
 </div>
 
 
