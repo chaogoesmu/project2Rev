@@ -12,6 +12,8 @@ import { OrderComponent } from './components/order/order.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UsercompComponent } from './components/usercomp/usercomp.component';
+import { AssemblerComponent } from './components/assembler/assembler.component';
+import { QuartermasterComponent } from './components/quartermaster/quartermaster.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { UsercompComponent } from './components/usercomp/usercomp.component';
     RegisterComponent,
     NavbarComponent,
     UsercompComponent,
+    AssemblerComponent,
+    QuartermasterComponent,
   ],
   imports: [
     BrowserModule,

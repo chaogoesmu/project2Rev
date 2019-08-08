@@ -3,12 +3,26 @@
 <div *ngIf="us.user.title == 'quartermaster'">
     <a routerLink="/">H O M E</a>
     <a name="login" routerLink="/login">Login</a>
+    <a routerLink="/quartermaster">Order</a>
     <a routerLink="/register">Register</a>
 </div>
+
 <div *ngIf="us.user.title == 'user'">
     <a routerLink="/">H O M E</a>
     <a routerLink="/contact">Contact</a>
     <a routerLink="/order">Order</a>
-    <!-- TODO -->
     <a (click)="us.logout()" routerLink="/">Logout</a>
+</div>
+
+<div *ngIf="us.user.title == 'assembler'">
+    <a routerLink="/">H O M E</a>
+    <a routerLink="/contact">Contact</a>
+    <a routerLink="/assembler">Order</a>
+    <a (click)="us.logout()" routerLink="/">Logout</a>
+</div>
+
+<div class="nav" *ngIf="us.user.title == 'nothing'">
+    <a routerLink="/">H O M E</a>
+    <a name="login" routerLink="/login">Login</a>
+    <a routerLink="/register">Register</a>
 </div>
