@@ -1,10 +1,36 @@
 <app-navbar></app-navbar>
 
-<div id="container">
+<div id="container" *ngIf = "us.user.title == 'user'; else crederr">
+    <div id="content">
     <p>Order your custom PC here!</p>
-    <input type="radio" value="Easy"/><input type="radio" value="Advanced"/>
-    
-    <form>
-        
+
+    <input [(ngModel)]="options" type="radio" value="Easy" name="diff" id="ez" [value]="true" [checked]="options"><label for="ez">Easy</label>
+    <input [(ngModel)]="options" type="radio" value="Advanced" name="diff" id="adv" [value]="false" [checked]="!options"><label for="adv">Advanced</label>
+
+    <div *ngIf = "options">
+    <p>Let us know what your requirements are and we'll make a custom build to meet your demands!</p>
+    <form (submit) = "submitez()">
+        <textarea placeholder="Some information about your requirements ie. what game you'd like it to run" name="req" rows="15" cols="80" [(ngModel)] = "req"></textarea><br/>
+        <input type="submit" value="Submit">
     </form>
+    </div>
+
+    <div *ngIf = "!options">
+    <p>Let us know what your requirements are and we'll make a custom build to meet your demands!</p>
+    <form (submit) = "submitadv()">
+        CPU <input type="text" placeholder="CPU" name="cpu" [(ngModel)] = "cpu"><br/>
+        GPU <input type="text" placeholder="Video card" name="gpu" [(ngModel)] = "gpu"><br/>
+        RAM <input type="text" placeholder="RAM amount (GB)" name="ram" [(ngModel)] = "ram"><br/>
+        SDD <input type="text" placeholder="SDD size (0 for none)" name="cpu" [(ngModel)] = "sdd"><br/>
+        
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+    </div>
 </div>
+
+<ng-template #crederr>
+    <span id="error">
+        You don't have access to this feature
+    </span>
+</ng-template>
