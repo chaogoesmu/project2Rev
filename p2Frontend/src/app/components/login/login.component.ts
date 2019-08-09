@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   }
 username = "";
 password = "";
-user;
 error:string = "";
 
 httpOptions = {
@@ -28,7 +27,6 @@ httpOptions = {
 
 
   onSubmit() {
-    this.user = new User(2,this.username, this.password, "quatermaster");
     this.us.loginUser(this.username, this.password);
     if (this.us.user === null){
       this.error = "invalid login";

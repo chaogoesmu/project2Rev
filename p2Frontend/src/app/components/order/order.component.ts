@@ -29,11 +29,17 @@ export class OrderComponent implements OnInit {
   }
 
   submitez() {
+    let obj = {"b_id": 0, "partList": this.req};
+    let json = JSON.stringify(obj);
+    //let json = '{\"b_id\": 0, \"partList\": \"' + this.req.split('"').join('\"') + '\"}';
+    //console.log(json);
+    //return false;
     // tslint:disable-next-line: max-line-length
-    this.http.post('http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/builds', this.req, this.httpOptions).toPromise().then((response) => {
+    this.http.post('http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/builds', json, this.httpOptions).toPromise().then((response) => {
       console.log(response);
+      //let jsr = JSON.parse(response);
       if (!(response === null)) {
-
+        alert("request created! your build id is " + response.b_Id);
       }
     });
     return false;
@@ -44,11 +50,14 @@ export class OrderComponent implements OnInit {
     //let json = "{}
     
     let req = "CPU: " + this.cpu + "\nGPU: " + this.gpu + "\n" + this.ram + "\nSDD: " + this.sdd;
+    let obj = {"b_id": 0, "partList": req};
+    let json = JSON.stringify(obj);
+
     // tslint:disable-next-line: max-line-length
-    this.http.post('http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/builds', req, this.httpOptions).toPromise().then((response) => {
+    this.http.post('http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/builds', json, this.httpOptions).toPromise().then((response) => {
       console.log(response);
       if (!(response === null)) {
-
+        alert("request created! your build id is " + response.b_Id);
       }
     });
   }
