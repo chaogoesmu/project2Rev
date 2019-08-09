@@ -41,7 +41,7 @@ export class OrderComponent implements OnInit {
       console.log(response);
       //let jsr = JSON.parse(response);
       if (!(response === null)) {
-        alert("request created! your build id is " + response.b_Id);
+        alert("request created! your build response was " + response);
       }
     });
     return false;
@@ -65,7 +65,7 @@ export class OrderComponent implements OnInit {
     this.http.post('http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/builds', json, this.httpOptions).toPromise().then((response) => {
       console.log(response);
       if (!(response === null)) {
-        alert("request created! your build id is " + response.b_Id);
+        alert("request created! your build response was " + response);
       }
     });
   }
