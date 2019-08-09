@@ -1,6 +1,17 @@
 export class Order {
 
-    constructor(public order_id:number, public quartermaster_id:number, public requester_id:number, public build_id:number, public status:string, public request_details:string){
+    // {
+    //     "orderId": 0,
+    //     "qmId": 0,
+    //     "rId": 0,
+    //     "aId": 0,
+    //     "build": "parts go in here",
+    //     "status": "status",
+    //     "requestDetails": "details of the request"
+        
+    // }
+
+    constructor(public orderId:number, public qmId:number, public rId:number,public aId:number, public build:string, public status:string, public requestDetails:string){
 
     }
 }
