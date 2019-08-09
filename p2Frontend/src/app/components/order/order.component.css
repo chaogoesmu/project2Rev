@@ -8,14 +8,18 @@ div#container {
 /* error */
 span#error {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: whitesmoke;
+  color: fuchsia;
   font-size: 18pt;
+  display: inline-block;
+  background-color: rgba(0,0,0,.6);
+  transform: translate(calc(50vw - 150px), calc(25vh));
 }
 
 form label {
   min-width: 200px;
   text-align: right;
   margin-right: 10px;
+  display: inline-block;
 }
 
 div#content {

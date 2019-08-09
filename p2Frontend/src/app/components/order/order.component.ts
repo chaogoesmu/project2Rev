@@ -18,6 +18,8 @@ export class OrderComponent implements OnInit {
   gpu: string = "";
   ram: string = "";
   sdd: string = "";
+  hdd: string = "";
+  os: string = "";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -48,8 +50,14 @@ export class OrderComponent implements OnInit {
     // tslint:disable-next-line: max-line-length
     // {"build": "string"}
     //let json = "{}
-    
-    let req = "CPU: " + this.cpu + "\nGPU: " + this.gpu + "\n" + this.ram + "\nSDD: " + this.sdd;
+    this.gpu = this.gpu == "" ? "unset" : this.gpu;
+    this.cpu = this.cpu == "" ? "unset" : this.cpu;
+    this.ram = this.ram == "" ? "unset" : this.ram;
+    this.sdd = this.sdd == "" ? "unset" : this.sdd;
+    this.hdd = this.hdd == "" ? "unset" : this.hdd;
+    this.os = this.os == "" ? "unset" : this.os;
+
+    let req = "CPU: " + this.cpu + "\nGPU: " + this.gpu + "\n" + this.ram + "\nSDD: " + this.sdd + "\nHDD: " + this.hdd + "\nOS: " + this.os;
     let obj = {"b_id": 0, "partList": req};
     let json = JSON.stringify(obj);
 
