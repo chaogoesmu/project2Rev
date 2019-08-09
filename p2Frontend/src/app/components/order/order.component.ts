@@ -20,19 +20,24 @@ export class OrderComponent implements OnInit {
   sdd: string = "";
   hdd: string = "";
   os: string = "";
+  status: string = "";
+  submitted: boolean = false;
+  message: string = "";
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':  'application/json'
+      'Content-Type': 'application/json'
     })
   };
 
   ngOnInit() {
+    this.submitted = false;
   }
 
   submitez() {
-    let obj = {"b_id": 0, "partList": this.req};
+    let obj = { "b_id": 0, "partList": this.req };
     let json = JSON.stringify(obj);
+    this.submitted = true;
     //let json = '{\"b_id\": 0, \"partList\": \"' + this.req.split('"').join('\"') + '\"}';
     //console.log(json);
     //return false;
@@ -41,15 +46,21 @@ export class OrderComponent implements OnInit {
       console.log(response);
       //let jsr = JSON.parse(response);
       if (!(response === null)) {
-        alert("request created! your build response was " + response);
+        this.status = "success";
+        this.message = "Sent your request.";
+      } else {
+        this.status = "failure";
+        this.message = "There was an error creating your request. Please try again.";
       }
     });
     return false;
+
   }
   submitadv() {
     // tslint:disable-next-line: max-line-length
     // {"build": "string"}
     //let json = "{}
+    this.submitted = true;
     this.gpu = this.gpu == "" ? "unset" : this.gpu;
     this.cpu = this.cpu == "" ? "unset" : this.cpu;
     this.ram = this.ram == "" ? "unset" : this.ram;
@@ -58,15 +69,20 @@ export class OrderComponent implements OnInit {
     this.os = this.os == "" ? "unset" : this.os;
 
     let req = "CPU: " + this.cpu + "\nGPU: " + this.gpu + "\n" + this.ram + "\nSDD: " + this.sdd + "\nHDD: " + this.hdd + "\nOS: " + this.os;
-    let obj = {"b_id": 0, "partList": req};
+    let obj = { "b_id": 0, "partList": req };
     let json = JSON.stringify(obj);
 
     // tslint:disable-next-line: max-line-length
     this.http.post('http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/builds', json, this.httpOptions).toPromise().then((response) => {
       console.log(response);
       if (!(response === null)) {
-        alert("request created! your build response was " + response);
+        this.status = "success";
+        this.message = "Your request was made successfully.";
+      } else {
+          this.status = "failure";
+          this.message = "There was an error creating your request. Please try again.";
       }
+      this.submitted = false;
     });
   }
 }

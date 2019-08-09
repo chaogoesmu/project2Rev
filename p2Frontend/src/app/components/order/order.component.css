@@ -12,7 +12,7 @@ span#error {
   font-size: 18pt;
   display: inline-block;
   background-color: rgba(0,0,0,.6);
-  transform: translate(calc(50vw - 150px), calc(25vh));
+  transform: translate(calc(50vw - 50%), calc(25vh));
 }
 
 form label {
@@ -32,4 +32,12 @@ div#content {
 textarea {
   font-size: 14pt;
   
+}
+
+.success {
+  background-color: green;
+}
+
+.failure {
+  background-color: fuchsia;
 }

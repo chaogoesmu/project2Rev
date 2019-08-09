@@ -16,7 +16,7 @@ div#container {
     color: whitesmoke;
     background-color: #282E34;
     opacity: .9;
-    transform: translate(calc(50vw - 150px), calc(25vh));
+    transform: translate(calc(50vw - 50%), calc(25vh));
     width: 300px;
   }
   fieldset{

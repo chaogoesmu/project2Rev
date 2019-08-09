@@ -5,3 +5,19 @@ body{
     background-color: #52575c;
     height: 100vh;
 }
+
+.spin {
+	display: inline-block;
+	width: .75em;
+	height: .75em;
+	background-color: blue;
+	animation-name: spin;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+ }

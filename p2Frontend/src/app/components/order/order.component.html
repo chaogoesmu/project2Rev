@@ -8,15 +8,17 @@
             [checked]="options"><label for="ez">Easy</label>
         <input [(ngModel)]="options" type="radio" value="Advanced" name="diff" id="adv" [value]="false"
             [checked]="!options"><label for="adv">Advanced</label>
+        <h1 [class] = "status">{{ message }}</h1>
 
         <div *ngIf="options">
             <p>Let us know what your requirements are and we'll make a custom build to meet your demands!</p>
             <form (submit)="submitez()">
                 <textarea placeholder="Some information about your requirements ie. what game you'd like it to run"
                     name="req" rows="15" cols="80" [(ngModel)]="req"></textarea><br />
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" [disabled] = "submitted">
             </form>
         </div>
+        <h1>{{ message }}</h1>
 
         <div *ngIf="!options">
             <p>Let us know what your requirements are and we'll make a custom build to meet your demands!</p>
@@ -27,7 +29,7 @@
                 <label>SDD</label><input type="number" placeholder="SDD size (0 for none)" name="sdd" [(ngModel)]="sdd"><br />
                 <label>HDD</label><input type="number" placeholder="HDD size (0 for none)" name="hdd" [(ngModel)]="hdd"><br />
                 <label>OS</label><input type="text" placeholder="OS" name="os" [(ngModel)]="os"><br />
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" [disabled] = "submitted">
             </form>
         </div>
     </div>
