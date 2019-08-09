@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
-import {User} from '../../models/user';
+import { User } from '../../models/user';
 import { UserserviceService } from '../../services/userservice.service';
+import { I18nSelectPipe } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -11,29 +12,29 @@ import { UserserviceService } from '../../services/userservice.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private http:HttpClient, private us:UserserviceService) { }
+  constructor(private http: HttpClient, private us: UserserviceService) { }
 
   ngOnInit() {
   }
-username = "";
-password = "";
-error:string = "";
+  username = "";
+  password = "";
+  error: string = "";
 
-httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json'
-  })
-};
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
 
 
   onSubmit() {
     this.us.loginUser(this.username, this.password);
-    if (this.us.user === null){
+    if (this.us.user === null) {
       this.error = "invalid login";
     }
-    else{
+    else {
       this.error = "";
     }
   }
-  
+
 }
