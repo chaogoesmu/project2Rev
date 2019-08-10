@@ -1,3 +1,40 @@
 <app-navbar></app-navbar>
 
-<p>quartermaster works!</p>
+<div id="container">
+    <p>LIST OF BUILDS SELECT ON PENDING APPROVAL</p>
+
+    <table id="buildtable">
+        <tr>
+            <th>Order Id</th>
+            <th>Build</th>
+            <th>Request Details</th>
+            <th>Status</th>
+        </tr>
+        <tr *ngFor="let order of orders">
+
+            <td>{{order.orderId}}</td>
+            <td>
+                <textarea [(ngModel)]="order.build" cols="30" rows="10">
+                    {{order.build}}
+                </textarea>
+            </td>
+            <td>{{order.requestDetails}}</td>
+            <td>
+                <select [(ngModel)]="order.status">
+                    <option value="approved">approved</option>
+                    <option value="denied">denied</option>
+
+
+                </select>
+            </td>
+            <td><button (click)="updateOrder(order)">Update Order</button></td>
+        </tr>
+    </table>
+</div>
+<ng-template #crederr>
+    <div id="container">
+        <span id="error">
+            You don't have access to this feature
+        </span>
+    </div>
+</ng-template>

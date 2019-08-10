@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 
-<div id="container" *ngIf="us.user.title == 'user'; else crederr">
+<div id="container" *ngIf="us.user.title == 'assembler'; else crederr">
 
     <table id="buildtable">
         <tr>
@@ -13,7 +13,7 @@
             <td>{{order.orderId}}</td>
             <td>{{order.build}}</td>
             <td>{{order.status}}</td>
-            <td><button *ngIf="order.status === 'Aproved'" (click)="assemble(order.orderId)">Assemble</button></td>
+            <td><button *ngIf="order.status === 'ready for build'" (click)="assemble(order.orderId)">Assemble</button></td>
         </tr>
     </table>
 </div>
