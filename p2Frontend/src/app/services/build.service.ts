@@ -8,7 +8,6 @@ import { Order } from '../models/order';
 export class BuildService {
 
   order:Order = new Order(-1,-1,-1,-1,"nothing","nothing","nothing");
-  orders:Order[];
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -17,44 +16,37 @@ export class BuildService {
   };
 
 
-  getAllBuilds(){
-    this.http.get<Order[]>("http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/orders").toPromise().then((response)=>{
-      console.log(response);
-      
-      if(!(response === null)){
-        this.orders = response;
-      }
-    });
+  getAllBuilds():Promise<Order[]>{
+    return this.http.get<Order[]>("http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/orders").toPromise();
   }
 
-  getBuild(id:number){
-    this.http.get<Order>("http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/orders/" + id).toPromise().then((response)=>{
-      console.log(response);
-      
-      if(!(response === null)){
-        this.order = response;
-      }
-    });
+  getBuildByBuildId(bid:number):Promise<Order>{
+    return this.http.get<Order>("http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/orders/" + bid).toPromise();
   }
-  createBuilds(build:string, status:string, requestdetails:string){
-    this.http.post("http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/orders", JSON.stringify(new Order(-1,-1,-1,-1,build,status,requestdetails)), this.httpOptions).toPromise().then((response)=>{
-      //console.log(response);
-      
-      if(!(response === null)){
-        console.log(response);
-      }
-    });
+  getBuildByUserId(uid:number):Promise<Order>{
+    return this.http.get<Order>("http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/orders/requester/" + uid).toPromise();
+
+  }
+  getBuildByAssemblerId(aid:number):Promise<Order>{
+    return this.http.get<Order>("http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/orders/assembler/" + aid).toPromise();
+
+  }
+  getBuildByQuartermasterId(qid:number):Promise<Order>{
+    return this.http.get<Order>("http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/orders/quartermaster/" + qid).toPromise();
+
   }
 
-  updateBuild(order:Order){
-    this.http.put("http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/orders", JSON.stringify(order), this.httpOptions).toPromise().then((response)=>{
-      //console.log(response);
-      
-      if(!(response === null)){
-      }
-    });
+  createBuilds(quatermasterid:number, userid:number, assemblerid:number, build:string, status:string, requestdetails:string):Promise<any>{
+    return this.http.post("http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/orders", JSON.stringify(new Order(-2,quatermasterid,userid,assemblerid,build,status,requestdetails)), this.httpOptions).toPromise();
   }
 
+  updateBuild(order:Order):Promise<any>{
+    return this.http.put("http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/orders", JSON.stringify(order), this.httpOptions).toPromise();
+  }
+  deleteBuild(bid:number):Promise<any>{
+    return this.http.delete("http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/orders/" + bid).toPromise();
+
+  }
   
 
   

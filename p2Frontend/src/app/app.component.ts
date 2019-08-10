@@ -10,7 +10,6 @@ export class AppComponent {
   title = "A Team Computing";
  
 constructor(){
-
 }
 
 
