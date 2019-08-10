@@ -7,7 +7,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { UsercompComponent } from './components/usercomp/usercomp.component';
 import { QuartermasterComponent } from './components/quartermaster/quartermaster.component';
 import { AssemblerComponent } from './components/assembler/assembler.component';
-
+import { ViewComponent } from './components/view/view.component';
 
 const routes: Routes = [
 
@@ -17,6 +17,7 @@ const routes: Routes = [
   {path: "usercomp", component: UsercompComponent},
   {path: "assembler", component: AssemblerComponent},
   {path: "quartermaster", component: QuartermasterComponent},
+  {path: "view", component: ViewComponent},
   {path: "**", component: HomeComponent}
 ];
 

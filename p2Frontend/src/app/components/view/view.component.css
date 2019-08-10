@@ -1,0 +1,27 @@
+div#container {
+    background-image: url("/assets/meeting3.jpg");
+    background-size: cover;
+    min-height: calc(100% - 30px);
+}
+
+table,
+caption {
+    background-color: rgba(0, 0, 0, .3);
+    color: whitesmoke;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14pt;
+    width: 100%;
+    display: inline-block;
+}
+
+
+/* error */
+
+span#error {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: fuchsia;
+    font-size: 18pt;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, .6);
+    transform: translate(calc(50vw - 50%), calc(25vh));
+}

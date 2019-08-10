@@ -23,8 +23,8 @@ export class BuildService {
   getBuildByBuildId(bid:number):Promise<Order>{
     return this.http.get<Order>("http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/orders/" + bid).toPromise();
   }
-  getBuildByUserId(uid:number):Promise<Order>{
-    return this.http.get<Order>("http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/orders/requester/" + uid).toPromise();
+  getBuildsByUserId(uid:number):Promise<Order[]>{
+    return this.http.get<Order[]>("http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/orders/requester/" + uid).toPromise();
 
   }
   getBuildByAssemblerId(aid:number):Promise<Order>{
@@ -45,7 +45,6 @@ export class BuildService {
   }
   deleteBuild(bid:number):Promise<any>{
     return this.http.delete("http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/orders/" + bid).toPromise();
-
   }
   
 

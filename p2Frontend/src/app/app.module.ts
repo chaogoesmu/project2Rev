@@ -14,6 +14,7 @@ import { UsercompComponent } from './components/usercomp/usercomp.component';
 import { AssemblerComponent } from './components/assembler/assembler.component';
 import { QuartermasterComponent } from './components/quartermaster/quartermaster.component';
 import { BuildComponent } from './components/build/build.component';
+import { ViewComponent } from './components/view/view.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { BuildComponent } from './components/build/build.component';
     AssemblerComponent,
     QuartermasterComponent,
     BuildComponent,
+    ViewComponent,
   ],
   imports: [
     BrowserModule,
