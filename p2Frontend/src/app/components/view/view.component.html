@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+
+<div id="container" *ngIf="us.user.title == 'user'; else crederr">
+    <table *ngIf="builds.length > 0; else nobuilds">
+        <caption>My builds:</caption>
+        <tr>
+            <th>Order ID</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor="let build of builds">
+            <td>{{ build.orderId }}</td>
+            <td>{{ build.build }}</td>
+            <td>{{ build.status }}</td>
+            <td><button (click)="delete(build.orderId)" *ngIf="build.status == 'pending approval'">cancel</button></td>
+        </tr>
+    </table>
+
+</div>
+
+
+<ng-template #nobuilds>
+    <span id="error">You don't have any builds! Make an order today!</span>
+</ng-template>
+
+<ng-template #crederr>
+    <div id="container">
+        <span id="error">
+                You don't have access to this feature
+            </span>
+    </div>
+</ng-template>
