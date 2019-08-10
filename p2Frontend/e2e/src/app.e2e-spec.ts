@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to p2Frontend!');
+    expect(browser.getTitle()).toEqual('PC Part Picker');
   });
 
   afterEach(async () => {
