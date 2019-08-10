@@ -23,7 +23,6 @@ export class AssemblerComponent implements OnInit {
       let order:Order = response;
       order.status = "Finished";
       this.bs.updateBuild(order).then((response) =>{
-        console.log(response);
         this.viewBuilds();
       });
     });

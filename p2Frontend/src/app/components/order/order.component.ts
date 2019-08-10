@@ -37,7 +37,6 @@ export class OrderComponent implements OnInit {
   submitez() {
     this.submitted = true;
     this.bs.createBuilds(0, this.us.user.id, 0, "", "pending approval", this.req).then((response) => {
-      console.log(response);
       //let jsr = JSON.parse(response);
       if (!(response === null)) {
         this.status = "success";
@@ -62,7 +61,6 @@ export class OrderComponent implements OnInit {
     let req = "CPU: " + this.cpu + "\nGPU: " + this.gpu + "\n" + this.ram + "\nSDD: " + this.sdd + "\nHDD: " + this.hdd + "\nOS: " + this.os;
 
     this.bs.createBuilds(0, this.us.user.id, 0, "", "pending approval",  req).then((response) => {
-      console.log(response);
       if (!(response === null)) {
         this.status = "success";
         this.message = "Your request was made successfully.";
