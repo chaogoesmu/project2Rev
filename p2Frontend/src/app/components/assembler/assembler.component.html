@@ -1,4 +1,26 @@
 <app-navbar></app-navbar>
 
+<div id="container" *ngIf="us.user.title == 'user'; else crederr">
 
-<p>assembler works!</p>
+    <table id="buildtable">
+        <tr>
+            <th>Order Id</th>
+            <th>Build</th>
+            <th>Status</th>
+        </tr>
+        <tr *ngFor="let order of orders">
+
+            <td>{{order.orderId}}</td>
+            <td>{{order.build}}</td>
+            <td>{{order.status}}</td>
+            <td><button *ngIf="order.status === 'Aproved'" (click)="assemble(order.orderId)">Assemble</button></td>
+        </tr>
+    </table>
+</div>
+<ng-template #crederr>
+        <div id="container">
+            <span id="error">
+                You don't have access to this feature
+            </span>
+        </div>
+    </ng-template>
