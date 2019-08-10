@@ -1,6 +1,4 @@
 import { Component, OnChanges, Input } from '@angular/core';
-import { User } from './models/user';
-import { UserserviceService } from './services/userservice.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +9,7 @@ import { UserserviceService } from './services/userservice.service';
 export class AppComponent {
   title = "A Team Computing";
  
-constructor(private us:UserserviceService){
+constructor(){
 }
 
 

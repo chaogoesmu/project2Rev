@@ -13,6 +13,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { UsercompComponent } from './components/usercomp/usercomp.component';
 import { AssemblerComponent } from './components/assembler/assembler.component';
 import { QuartermasterComponent } from './components/quartermaster/quartermaster.component';
+import { BuildComponent } from './components/build/build.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { QuartermasterComponent } from './components/quartermaster/quartermaster
     UsercompComponent,
     AssemblerComponent,
     QuartermasterComponent,
+    BuildComponent,
   ],
   imports: [
     BrowserModule,
