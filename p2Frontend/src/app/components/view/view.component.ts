@@ -29,4 +29,15 @@ export class ViewComponent implements OnInit {
     );}
     );
   }
+
+  approve(order: Order) {
+    order.status = "ready for build"
+    this.bs.updateBuild(order).then( () => {
+      this.bs.getBuildsByUserId(this.us.user.id).then(
+        (response) => {
+          this.builds = response;
+        }
+      );
+    });
+  }
 }
