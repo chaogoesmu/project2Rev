@@ -6,14 +6,19 @@
         <tr>
             <th>Order ID</th>
             <th>Description</th>
+            <th>Build Requirements</th>
             <th>Status</th>
             <th>Actions</th>
         </tr>
         <tr *ngFor="let build of builds">
             <td>{{ build.orderId }}</td>
             <td>{{ build.build }}</td>
+            <td>{{ build.requestDetails }}</td>
             <td>{{ build.status }}</td>
-            <td><button (click)="delete(build.orderId)" *ngIf="build.status == 'pending approval'">cancel</button></td>
+            <td>
+                <button (click)="delete(build.orderId)" *ngIf="build.status == 'pending approval'">cancel</button>
+                <button (click)="approve(build)" *ngIf="build.status == 'approved'">approve</button>
+            </td>
         </tr>
     </table>
 
@@ -28,6 +33,6 @@
     <div id="container">
         <span id="error">
                 You don't have access to this feature
-            </span>
+        </span>
     </div>
 </ng-template>
