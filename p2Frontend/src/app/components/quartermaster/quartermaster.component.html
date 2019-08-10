@@ -1,13 +1,12 @@
 <app-navbar></app-navbar>
 
-<div id="container">
+<div id="container"  *ngIf="us.user.title == 'quartermaster'; else crederr">
 
     <table id="buildtable">
         <tr>
             <th>Order Id</th>
             <th>Build</th>
             <th>Request Details</th>
-            <th>Status</th>
         </tr>
         <tr *ngFor="let order of orders">
             <ng-container *ngIf="order.status === 'pending approval'">
@@ -21,13 +20,9 @@
                 </textarea>
             </td>
             <td>{{order.requestDetails}}</td>
-            <td>
-                <select [(ngModel)]="order.status">
-                    <option value="approved">approved</option>
-                    <option value="denied">denied</option>
-                </select>
+            <td><button (click)="order.status = 'approved'; updateOrder(order)">Approve Order</button>
+                <button (click)="order.status = 'denied'; updateOrder(order)">Deny Order</button>
             </td>
-            <td><button (click)="updateOrder(order)">Update Order</button></td>
         </ng-container>
         </tr>
     </table>
