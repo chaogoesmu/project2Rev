@@ -1,7 +1,6 @@
 <app-navbar></app-navbar>
 
 <div id="container">
-    <p>LIST OF BUILDS SELECT ON PENDING APPROVAL</p>
 
     <table id="buildtable">
         <tr>
@@ -11,6 +10,9 @@
             <th>Status</th>
         </tr>
         <tr *ngFor="let order of orders">
+            <ng-container *ngIf="order.status === 'pending approval'">
+
+
 
             <td>{{order.orderId}}</td>
             <td>
@@ -23,11 +25,10 @@
                 <select [(ngModel)]="order.status">
                     <option value="approved">approved</option>
                     <option value="denied">denied</option>
-
-
                 </select>
             </td>
             <td><button (click)="updateOrder(order)">Update Order</button></td>
+        </ng-container>
         </tr>
     </table>
 </div>
