@@ -4,6 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { User } from '../../models/user';
 import { UserserviceService } from '../../services/userservice.service';
 import { I18nSelectPipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { I18nSelectPipe } from '@angular/common';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private http: HttpClient, private us: UserserviceService) { }
+  constructor(private http: HttpClient, private us: UserserviceService, private router:Router) { }
 
   ngOnInit() {
   }
@@ -28,13 +29,18 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit() {
-    this.us.loginUser(this.username, this.password);
-    if (this.us.user.title === "nothing") {
-      this.error = "Invalid login";
-    }
-    else {
-      this.error = "";
-    }
+    this.us.loginUser(this.username, this.password).then((response)=>{
+      if(!(response === null)){
+        this.us.user = response;
+        this.error = "";
+
+        this.router.navigate(["/"]);
+      }
+      else{
+        this.error = "Invalid login";
+
+      }
+    });
   }
 
 }
