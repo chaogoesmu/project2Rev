@@ -19,14 +19,8 @@ export class UserserviceService{
 
   constructor(private http:HttpClient, private router:Router) { }
 
-  loginUser(username:string, password:string){
-    this.http.post<User>("http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/login", JSON.stringify(new User(0, username, password, "user")), this.httpOptions).toPromise().then((response)=>{
-      
-      if(!(response === null)){
-        this.user = response;
-        this.router.navigate(["/"]);
-      }
-    });
+  loginUser(username:string, password:string):Promise<any>{
+    return this.http.post<User>("http://ec2-3-16-22-70.us-east-2.compute.amazonaws.com:9999/login", JSON.stringify(new User(0, username, password, "user")), this.httpOptions).toPromise();
     
   }
 
