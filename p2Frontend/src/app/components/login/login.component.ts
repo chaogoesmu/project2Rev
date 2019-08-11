@@ -29,8 +29,8 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.us.loginUser(this.username, this.password);
-    if (this.us.user === null) {
-      this.error = "invalid login";
+    if (this.us.user.title === "nothing") {
+      this.error = "Invalid login";
     }
     else {
       this.error = "";
